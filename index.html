@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- #region Head -->
+  <head>
+    <meta charset="UTF-8" />
+    <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image search app</title>
+
+    <!-- Normalize Styles -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.min.css"
+    />
+    <!-- Styles css -->
+    <script type="module" crossorigin src="/goit-js-hw-12/index.js"></script>
+    <link rel="modulepreload" crossorigin href="/goit-js-hw-12/assets/vendor-lDhL-8I6.js">
+    <link rel="stylesheet" crossorigin href="/goit-js-hw-12/assets/vendor-Dr4k8ETB.css">
+    <link rel="stylesheet" crossorigin href="/goit-js-hw-12/assets/index-BM-9sedc.css">
+  </head>
+  <!-- #endregion Head-->
+
+  <!-- #region Body -->
+  <body>
+    <!-- #region Main -->
+    <main>
+      <div class="main-container">
+        <h1 class="main-title">Image search</h1>
+
+        <div class="wrapper">
+          <!-- Search form -->
+          <form class="form">
+            <label>
+              <input
+                type="text"
+                name="search-text"
+                placeholder="Search images..."
+                autocomplete="off"
+              />
+            </label>
+            <button type="submit">Search</button>
+          </form>
+        </div>
+
+        <!-- Image container -->
+        <div class="img-container">
+          <ul class="gallery">
+            <li class="gallery-item"></li>
+          </ul>
+        </div>
+
+        <!-- Load more button -->
+        <button class="load-btn hidden" type="submit">Load more</button>
+
+        <!-- Loader -->
+        <span class="loader hidden"></span>
+      </div>
+    </main>
+    <!-- #endregion Main-->
+
+    <!-- Script JS -->
+  </body>
+  <!-- #endregion Body-->
+</html>
