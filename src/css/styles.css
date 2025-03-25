@@ -8,11 +8,333 @@
 @import url('./reset.css');
 @import url('./base.css');
 @import url('./container.css');
-@import url('./animations.css');
+/* @import url('./animations.css'); */
 
 /* Sections style */
-@import url('./header.css');
+/* @import url('./header.css');
 @import url('./vite-promo.css');
 @import url('./badges.css');
 @import url('./back-link.css');
-@import url('./footer.css');
+@import url('./footer.css'); */
+
+:root {
+  --primary-color: #4e75ff;
+  --secondary-color: #ff3d00;
+  --text-color: #2e2f42;
+  --light-gray: #808080;
+  --dark-gray: #333;
+  --background-color: #fff;
+  --border-color: #ddd;
+}
+
+.main-title {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  text-shadow: 1px 1px 1.5px #7c7a7a;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+
+  width: 100%;
+  height: auto;
+  margin-bottom: 32px;
+}
+
+/* Styles for Tablet and Desktop devices */
+@media only screen and (min-width: 768px) {
+  .form {
+    width: 371px;
+  }
+}
+
+input {
+  border: 1px solid #808080;
+  border-radius: 4px;
+  width: 100%;
+  height: auto;
+
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.04em;
+  color: #808080;
+
+  padding: 8px 16px;
+  transition: border-color 0.3s, color 0.3s;
+
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles for Tablet and Desktop devices */
+@media only screen and (min-width: 768px) {
+  input {
+    width: 272px;
+  }
+}
+
+input:hover,
+input:focus {
+  border: 1px solid #000;
+  cursor: pointer;
+  outline: none;
+
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+input:focus,
+input:active {
+  border: 1px solid #4e75ff;
+  color: #2e2f42;
+
+  box-shadow: 0 0 5px rgba(78, 117, 255, 0.5);
+}
+
+button {
+  border-radius: 6px;
+  padding: 8px 16px;
+  width: 91px;
+  height: auto;
+  background: #4e75ff;
+  border: none;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.04em;
+  color: #fff;
+
+  transition: border-color 0.3s, color 0.3s;
+}
+
+button:hover,
+button:focus {
+  cursor: pointer;
+  background: #6c8cff;
+  outline: none;
+}
+
+button:active {
+  background: #3a5fb7;
+}
+
+.load-btn {
+  width: 125px;
+  height: auto;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  list-style-type: none;
+  margin-bottom: 32px;
+}
+
+.gallery_item {
+  box-sizing: border-box;
+  list-style-type: none;
+  border: 1px solid #808080;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  border-radius: 6px;
+  overflow: hidden;
+  width: 100%;
+  /* One item in a row */
+
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.gallery_item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Styles for Tablet devices */
+@media only screen and (min-width: 768px) {
+  .gallery_item {
+    width: calc(50% - 16px);
+    /* Two item in a row */
+  }
+}
+
+/* Styles for Desktop devices */
+@media only screen and (min-width: 1200px) {
+  .gallery_item {
+    width: calc(33.333% - 16px);
+    /* Three item in a row */
+  }
+}
+
+.gallery_image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-bottom: 1px solid #ddd;
+
+  transition: transform 0.3s ease;
+}
+
+.gallery_info {
+  padding: 4px 25px;
+  background: #fff;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.gallery_stats {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: #2e2f42;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 133%;
+  letter-spacing: 0.04em;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Styles for Tablet devices */
+@media only screen and (min-width: 768px) {
+  .gallery_stats {
+    gap: 12px;
+  }
+}
+
+/* Styles for Desktop devices */
+@media only screen and (min-width: 1200px) {
+  .gallery_stats {
+    gap: 24px;
+  }
+}
+
+.gallery_stats p {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Styles for statistics text */
+.gallery_stats p span {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 200%;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+}
+
+/* Styles for statistics headers */
+.gallery_likes,
+.gallery_views,
+.gallery_comments,
+.gallery_downloads {
+  font-weight: 600;
+  line-height: 133%;
+}
+
+.simple-lightbox img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.simple-lightbox .sl-caption {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 200%;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+}
+
+/* Styles for Loader */
+.hidden {
+  display: none;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 3px dotted #6c8cff;
+  border-style: solid solid dotted dotted;
+  border-radius: 50%;
+  /* display: inline-block; */
+  position: relative;
+  box-sizing: border-box;
+  animation: rotation 2s linear infinite;
+}
+
+.loader::after {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  border: 3px dotted #3a5fb7;
+  border-style: solid solid dotted;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  animation: rotationBack 1s linear infinite;
+  transform-origin: center center;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotationBack {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+/* Styles Izitoast */
+.custom-toast {
+  width: 432px !important;
+  border-radius: 4px;
+}
+
+.custom-toast .iziToast-title,
+.custom-toast .iziToast-message {
+  font-size: 16px;
+}
+
+.custom-toast .iziToast-close {
+  color: #fff !important;
+  /* Білий колір для хрестика */
+  font-size: 20px;
+  /* Змінює розмір хрестика */
+}

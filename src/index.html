@@ -1,23 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+  <!-- #region Head -->
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vanilla App Template</title>
+    <title>Image search app</title>
+
+    <!-- Normalize Styles -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.min.css"
+    />
+    <!-- Styles css -->
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
+  <!-- #endregion Head-->
+
+  <!-- #region Body -->
   <body>
-    <load src="./partials/header.html" icon-path="img/sprite.svg#logo" />
-
+    <!-- #region Main -->
     <main>
-      <!-- Loads the specified .html file -->
-      <load src="./partials/vite-promo.html" />
-      <load src="./partials/badges.html" />
+      <div class="main-container">
+        <h1 class="main-title">Image search</h1>
+
+        <div class="wrapper">
+          <!-- Search form -->
+          <form class="form">
+            <label>
+              <input
+                type="text"
+                name="search-text"
+                placeholder="Search images..."
+                autocomplete="off"
+              />
+            </label>
+            <button type="submit">Search</button>
+          </form>
+        </div>
+
+        <!-- Image container -->
+        <div class="img-container">
+          <ul class="gallery">
+            <li class="gallery-item"></li>
+          </ul>
+        </div>
+
+        <!-- Load more button -->
+        <button class="load-btn hidden" type="submit">Load more</button>
+
+        <!-- Loader -->
+        <span class="loader hidden"></span>
+      </div>
     </main>
+    <!-- #endregion Main-->
 
-    <load src="./partials/footer.html" />
-
-    <script type="module" src="./main.js"></script>
+    <!-- Script JS -->
+    <script type="module" src="./main.js" defer></script>
   </body>
+  <!-- #endregion Body-->
 </html>
