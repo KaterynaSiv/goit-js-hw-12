@@ -281,6 +281,7 @@ button:active {
   position: relative;
   box-sizing: border-box;
   animation: rotation 2s linear infinite;
+  margin-top: 8px;
 }
 
 .loader::after {

@@ -38,35 +38,37 @@ form.addEventListener('submit', async function (e) {
   }
 
   currentQuery = query;
-  currentPage = 1; // Reset page for new search
+  currentPage = 1;
   clearGallery();
   displayLoader(true);
 
   const { images, totalHits } = await fetchImages(query, currentPage);
 
-  if (images.length > 0) {
-    renderImages(images);
-    loadMoreBtn.classList.remove('hidden');
-    if (images.length < totalHits) {
-      loadMoreBtn.disabled = false;
-    } else {
-      loadMoreBtn.classList.add('hidden');
-      iziToast.info({
-        title: 'End of Results!',
-        message: "We're sorry, but you've reached the end of search results.",
-        position: 'topRight',
-        iconUrl: infoIcon,
-        titleColor: '#fff',
-        messageColor: '#fafafb',
-        backgroundColor: '#6c8cff',
-        progressBarColor: '#3a5fb',
-        class: 'custom-toast',
-      });
-    }
-  }
-
   displayLoader(false);
   searchInput.value = '';
+
+  if (images.length === 0) {
+    loadMoreBtn.classList.add('hidden');
+    return;
+  }
+
+  renderImages(images);
+  if (totalHits > images.length) {
+    loadMoreBtn.classList.remove('hidden');
+  } else {
+    loadMoreBtn.classList.add('hidden');
+    iziToast.info({
+      title: 'End of Results!',
+      message: "We're sorry, but you've reached the end of search results.",
+      position: 'topRight',
+      iconUrl: infoIcon,
+      titleColor: '#fff',
+      messageColor: '#fafafb',
+      backgroundColor: '#6c8cff',
+      progressBarColor: '#3a5fb',
+      class: 'custom-toast',
+    });
+  }
 });
 
 loadMoreBtn.addEventListener('click', async function () {
@@ -75,23 +77,32 @@ loadMoreBtn.addEventListener('click', async function () {
 
   const { images, totalHits } = await fetchImages(currentQuery, currentPage);
 
-  if (images.length > 0) {
-    renderImages(images);
-    if (images.length < totalHits) {
-      loadMoreBtn.disabled = false;
-    } else {
-      loadMoreBtn.classList.add('hidden');
-      iziToast.info({
-        title: 'End of Results',
-        message: "We're sorry, but you've reached the end of search results.",
-        position: 'topRight',
-      });
-    }
+  displayLoader(false);
+
+  if (images.length === 0) {
+    loadMoreBtn.classList.add('hidden');
+    return;
+  }
+
+  renderImages(images);
+
+  const totalLoaded = currentPage * 15;
+  if (totalLoaded >= totalHits) {
+    loadMoreBtn.classList.add('hidden');
+    iziToast.info({
+      title: 'End of Results!',
+      message: "We're sorry, but you've reached the end of search results.",
+      position: 'topRight',
+      iconUrl: infoIcon,
+      titleColor: '#fff',
+      messageColor: '#fafafb',
+      backgroundColor: '#6c8cff',
+      progressBarColor: '#3a5fb',
+      class: 'custom-toast',
+    });
   }
 
   smoothScroll();
-
-  displayLoader(false);
 });
 
 function smoothScroll() {
